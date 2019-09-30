@@ -1,0 +1,12 @@
+#!/bin/bash
+cd ..
+cd ..
+cd /home/workspace
+xterm -e "./move2py2.sh"
+#./activate.sh
+#bash -i move2py2.sh
+source /opt/miniconda3/etc/profile.d/conda.sh
+#source /root/miniconda3/etc/profile.d/conda.sh
+#source activate /opt/robond/py2
+conda activate /opt/robond/py2
+cd /home/workspace/catkin_ws/
