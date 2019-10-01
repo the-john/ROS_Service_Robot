@@ -11,7 +11,7 @@ int main( int argc, char** argv )
   // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::CUBE;
 
-  while (ros::ok())
+  if (ros::ok())
   {
     visualization_msgs::Marker marker;
     // Set the frame ID and timestamp.  See the TF tutorials for information on these.
@@ -23,7 +23,7 @@ int main( int argc, char** argv )
     marker.ns = "add_markers";
     marker.id = 0;
 
-    // Set the marker type.  Initially this is CUBE, and cycles between that and SPHERE, ARROW, and CYLINDER
+    // Set the marker type to CUBE
     marker.type = shape;
 
     // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
@@ -49,7 +49,7 @@ int main( int argc, char** argv )
     marker.color.b = 0.0f;
     marker.color.a = 1.0;
 
-    //marker.lifetime = ros::Duration();
+    marker.lifetime = ros::Duration(5.0);
 
     // Publish the marker
     while (marker_pub.getNumSubscribers() < 1)
@@ -65,14 +65,38 @@ int main( int argc, char** argv )
 
     // Leave marker posted for 5 seconds
     ros::Duration(5.0).sleep();
-    ROS_WARN_ONCE("Made it past the 5 seconds wait");
 
     // Remove old marker
-    //marker.action = visualization_msgs::Marker::DELETE;
     marker.action = visualization_msgs::Marker::DELETE;  
-    ROS_WARN_ONCE("Past the marker delete command"); 
+    marker_pub.publish(marker);
+
+    // Wait another 5 seconds
     ros::Duration(5.0).sleep();
 
-    //r.sleep();
+    marker.action = visualization_msgs::Marker::ADD;
+    
+    marker.pose.position.x = -3.0;
+    marker.pose.position.y = -3.0;
+
+    marker.lifetime = ros::Duration();
+
+    // Publish the marker
+    while (marker_pub.getNumSubscribers() < 1)
+    {
+      if (!ros::ok())
+      {
+        return 0;
+      }
+      ROS_WARN_ONCE("Please create a subscriber to the marker xxx");
+      sleep(1);
+    }
+    marker_pub.publish(marker);
+
+    ROS_WARN_ONCE("Made it into second marker");
+    
+    ros::Duration(5.0).sleep();
+
+
+    r.sleep();
   }
 }
