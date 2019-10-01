@@ -8,10 +8,6 @@
 : ${TURTLEBOT_GAZEBO_MAP_FILE:=`rospack find turtlebot_gazebo`/maps/playground.yaml}
 : ${TURTLEBOT_GAZEBO_WORLD_FILE:=`rospack find turtlebot_gazebo`/worlds/playground.world}
 
-#: ${TURTLEBOT_GAZEBO_MAP_FILE:=`rospack find turtlebot_gazebo`/maps/map.yaml}
-#: ${TURTLEBOT_GAZEBO_WORLD_FILE:=`rospack find turtlebot_gazebo`/worlds/john.world}
-
-
 # Exports
 export TURTLEBOT_GAZEBO_MAP_FILE
 export TURTLEBOT_GAZEBO_WORLD_FILE

@@ -7,8 +7,9 @@ Panels:
         - /Status1
         - /TF1/Frames1
         - /TF1/Tree1
-        - /Global Map1
-        - /Local Map1
+        - /Global Map1/Costmap1
+        - /Local Map1/Costmap1
+        - /Full Plan1
       Splitter Ratio: 0.5
     Tree Height: 505
   - Class: rviz/Selection
@@ -29,7 +30,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Toolbars:
   toolButtonStyle: 2
 Visualization Manager:
@@ -406,7 +407,7 @@ Visualization Manager:
           Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 493.5
+          Max Intensity: 374.299988
           Min Color: 0; 0; 0
           Min Intensity: 0
           Name: Cost Cloud
@@ -436,9 +437,9 @@ Visualization Manager:
           Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 16.7999992
+          Max Intensity: 10.3999996
           Min Color: 0; 0; 0
-          Min Intensity: 7.19999981
+          Min Intensity: 2.4000001
           Name: Trajectory Cloud
           Position Transformer: XYZ
           Queue Size: 10
@@ -492,6 +493,14 @@ Visualization Manager:
       Topic: /move_base/NavfnROS/plan
       Unreliable: false
       Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: visualization_marker
+      Name: Marker
+      Namespaces:
+        add_markers: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -515,7 +524,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -6.21002674
+      Angle: -6.28502798
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
@@ -525,11 +534,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 51.0043411
+      Scale: 159.578598
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 0.288367122
-      Y: 0.690509021
+      X: 0.0503278933
+      Y: 0.214444831
     Saved: ~
 Window Geometry:
   Displays:
@@ -547,5 +556,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1065
-  X: 522
-  Y: 59
+  X: 81
+  Y: 104
